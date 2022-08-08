@@ -87,65 +87,6 @@ class Remoteservices {
     }
   }
 
-  Future<Coinmodels?> getcoin() async {
-    http.Response response;
-    response = await http.get(Uri.parse(API.colors));
-    print(response.body);
-    if (response.statusCode == 200) {
-      Coinmodels coinmodels = Coinmodels.fromJson(jsonDecode(response.body));
-      print(coinmodels);
-      return coinmodels;
-    } else {
-      return null;
-    }
-  }
-
-  Future<Videodetailsmodels?> getVideodetails(String showid) async {
-    http.Response response;
-    response = await http.get(
-        Uri.parse('https://bholiwood.in/mobileapp/api/videoDetails/$showid'));
-    print(response.body);
-    if (response.statusCode == 200) {
-      Videodetailsmodels videodetailsmodels =
-          Videodetailsmodels.fromJson(jsonDecode(response.body));
-      print(videodetailsmodels);
-      return videodetailsmodels;
-    } else {
-      return null;
-    }
-  }
-
-  Future<Slidermodels?> getslider() async {
-    http.Response response;
-    response = await http.get(
-      Uri.parse(API.getslider),
-    );
-    print(response.body);
-    if (response.statusCode == 200) {
-      Slidermodels slidermodels =
-          Slidermodels.fromJson(jsonDecode(response.body));
-      print(slidermodels);
-      return slidermodels;
-    } else {
-      return null;
-    }
-  }
-
-  Future<Gamemodel?> getgame() async {
-    http.Response response;
-    response = await http.get(
-      Uri.parse(API.BASE_game_URL),
-    );
-    print(response.body);
-    if (response.statusCode == 200) {
-      Gamemodel gamemodel = Gamemodel.fromJson(jsonDecode(response.body));
-      print(gamemodel);
-      return gamemodel;
-    } else {
-      return null;
-    }
-  }
-
   Future<Channelmodels?> getChannel() async {
     http.Response response;
     response = await http.get(
@@ -162,36 +103,9 @@ class Remoteservices {
     }
   }
 
-  Future<Categoriesmodels?> getCategories(String categorieid) async {
-    http.Response response;
-    response = await http.get(
-      Uri.parse(
-          "https://bholiwood.in/mobileapp/api/display-alldata/$categorieid"),
-    );
-    print(response.body);
-    if (response.statusCode == 200) {
-      Categoriesmodels channelmodels =
-          Categoriesmodels.fromJson(jsonDecode(response.body));
-      print(channelmodels);
-      return channelmodels;
-    } else {
-      return null;
-    }
-  }
+ 
 
-  // Future<SearchVideo>? emptyList;
-  // Future<SearchVideo>? getBooks2(String query) async {
-  //   final url = Uri.parse(API.searchvideo);
-  //   final response = await http.get(url);
-  //   if (response.statusCode == 200) {
-  //     SearchVideo resFromServer =
-  //         SearchVideo.fromJson(jsonDecode(response.body));
-
-  //     print("resFromServer  ${resFromServer.data![0].showId}");
-  //     return resFromServer;
-  //   }
-  //   return emptyList;
-  // }
+ 
 
   static Future<List<Searching>> getBooks(String query) async {
     final url = Uri.parse(API.searchvideo);
